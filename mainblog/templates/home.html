@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% extends 'based.html' %}
+{% block content %}
+    <br>
+
+        <h1>Your's friends posts</h1>
+        <ul>
+
+            {% for post in object_list %}
+                <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+                    - {{ post.author.username }}<br>
+                    {{ post.body }}<br>
+                    <a href="{% url 'category' post.category%}">#{{ post.category }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+
+
+{% endblock %}
+</body>
+</html>

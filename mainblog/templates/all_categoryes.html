@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'based.html' %}
+{% block content %}
+    <br>
+
+    <h1>Categoryes</h1>
+    <ul>
+
+        {% for cat in cats_list %}
+            <li>
+                <a href="{% url 'category' cat %}"> {{ cat }} </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+
+{% endblock %}
+</body>
+</html>

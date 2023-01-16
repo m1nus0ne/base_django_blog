@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update post</title>
+</head>
+<body>
+{% extends 'based.html' %}
+{% block content %}
+{% if user.is_authenticated and user.id == post.author.id %}
+    <br>
+
+    <h1>Edit your post</h1>
+    <div class="form-group">
+        <form method="post">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Edit</button>
+    </div>
+    {% else %}
+    Acces denied
+    {% endif %}
+
+{% endblock %}
+</body>
+</html>

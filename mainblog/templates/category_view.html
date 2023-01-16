@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+{% extends 'based.html' %}
+{% block content %}
+    <br>
+
+        <h1>{{ tag }}</h1>
+        <ul>
+
+            {% for post in postlist %}
+                <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+                    - {{ post.author.first_name }}<br>
+                    {{ post.body }}
+                </li>
+            {% endfor %}
+
+        </ul>
+
+
+{% endblock %}
+</body>
+</html>

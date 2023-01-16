@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new post</title>
+</head>
+<body>
+{% extends 'based.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <br>
+
+        <h1>Add new post</h1>
+        <div class="form-group">
+            <form method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Post</button>
+        </div>
+    {% else %}
+        Acces denied
+    {% endif %}
+    <script>
+    current = '{{ user.id }}';
+    document.getElementById('au').value = current
+
+    </script>
+{% endblock %}
+</body>
+</html>
